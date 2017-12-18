@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Socket IO Example</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <div id="text"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        socket.emit('hi', {'client': 'This is client'});
+        socket.on('hello', function (data) {
+            document.getElementById('text').innerText = data.server;
+        });
+    </script>
+</body>
+</html>
